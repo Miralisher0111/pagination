@@ -1,0 +1,7 @@
+.form{
+    width: 20%;
+}
+.form label{
+    width: 100%;
+    display: block;
+}

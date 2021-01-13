@@ -1,8 +1,9 @@
 const express=require('express');
 const router=express.Router();
 const Person=require('../model/Person')
-
-router.get('/index',(req,res)=>{
+    // Metod GET 
+    
+router.get('/',(req,res)=>{
     const page=parseInt(req.query.page);
     const count=parseInt(req.query.count);
    Person.find({},(err,result)=>{
@@ -10,17 +11,14 @@ router.get('/index',(req,res)=>{
             console.log(err);
         }
         else{
-            // console.log(count);
-            // console.log(page);
-            const count=result.length
             res.render('index',{title:"index",result,count})
         }
     })
     .skip((page-1)*count)
     .limit(count)
 })
-router.post('/index',(req,res,next)=>{
-    
+    // Metod POST
+router.post('/',(req,res,next)=>{
     const person=new Person(req.body)
     person.save()
     .then(()=>{

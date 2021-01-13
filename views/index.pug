@@ -1,19 +1,34 @@
 extends layout
 block content
+    .container
+     .form
+        form(method="POST" action="/")
+            label(for="name") Ismi
+            input( id="name" type="text", name="name")
+            label(for="surname") Familysi
+            input( id="surname" type="text", name="surname")
+            label(for="age") Yoshi
+            input( id="age" type="number", name="age")
+            button.btn.btn-success.mt-3.p-1(type="submit") qo'shish
+            button.btn.btn-danger.mt-3.p-1(type="reset") tozalash
     each data,i in result
      .card.col-md-6.offset-3
         ul
+         li.list-group-item=data.num
          li.list-group-item=data.name
          li.list-group-item=data.surname
          li.list-group-item=data.age
+        hr
     .container
         nav(aria-label='Page navigation example')
             ul.pagination
                 li.page-item
                  a.page-link(href='#') Previous
-                -var i=3;
-                while i<count/2
-                 li.page-item
-                   a.page-link(href='#') i
+                li.page-item
+                 a.page-link(href='#') 1
+                li.page-item
+                 a.page-link(href='#') 2
+                li.page-item
+                 a.page-link(href='#') 3
                 li.page-item
                  a.page-link(href='#') Next
