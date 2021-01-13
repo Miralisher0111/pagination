@@ -1,0 +1,19 @@
+extends layout
+block content
+    each data,i in result
+     .card.col-md-6.offset-3
+        ul
+         li.list-group-item=data.name
+         li.list-group-item=data.surname
+         li.list-group-item=data.age
+    .container
+        nav(aria-label='Page navigation example')
+            ul.pagination
+                li.page-item
+                 a.page-link(href='#') Previous
+                -var i=3;
+                while i<count/2
+                 li.page-item
+                   a.page-link(href='#') i
+                li.page-item
+                 a.page-link(href='#') Next
